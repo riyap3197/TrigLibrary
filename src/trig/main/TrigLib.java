@@ -2,28 +2,50 @@ package trig.main;
 
 public class TrigLib {
     
-    public static void main (String args[]) throws CustomException {
-        double in1 = 368;
-        System.out.println(cosine(toRadians(in1)));
-        System.out.println(Math.cos(Math.toRadians(in1)));
-    }
-    
-    public static double toDegrees(double x) throws CustomException 
+    /**
+     * Converts an angle measured in radians to an approximately
+     * equivalent angle measured in degrees.  The conversion from
+     * radians to degrees is generally inexact;
+     *
+     * @param   rad   an angle, in radians
+     * @return  the measurement of the angle {@code rad}
+     *          in degrees.
+     */
+    public static double toDegrees(double rad) throws CustomException 
     { 
-        if ( x == Double.POSITIVE_INFINITY || x == Double.NEGATIVE_INFINITY )
+        if ( rad == Double.POSITIVE_INFINITY || rad == Double.NEGATIVE_INFINITY )
             throw new CustomException();
-        double sum = x * 180 / Math.PI;
-        return sum; 
+        double deg = rad * 180 / Math.PI;
+        return deg; 
     }
     
-    public static double toRadians(double x) throws CustomException 
+    /**
+     * Converts an angle measured in degrees to an approximately
+     * equivalent angle measured in radians.  The conversion from
+     * degrees to radians is generally inexact.
+     *
+     * @param   deg   an angle, in degrees
+     * @return  the measurement of the angle {@code deg}
+     *          in radians.
+     */
+    public static double toRadians(double deg) throws CustomException 
     { 
-        if ( x == Double.POSITIVE_INFINITY || x == Double.NEGATIVE_INFINITY || x==Double.NaN)
+        if ( deg == Double.POSITIVE_INFINITY || deg == Double.NEGATIVE_INFINITY )
             throw new CustomException();
-        double sum = x * Math.PI / 180;
-        return sum; 
+        double rad = deg * Math.PI / 180;
+        return rad; 
     }
     
+    /**
+     * Returns the trigonometric sine of an angle.  Special cases:
+     * If the argument is negative or positive infinity, then it
+     * will throw a custom exception.
+     * If the argument is zero, then the result is a zero with the
+     * same sign as the argument.
+     *
+     * @param   x   an angle, in radians.
+     * @return  the sine of the argument.
+     */
     public static double sine(double x) throws CustomException {
         if ( x == Double.POSITIVE_INFINITY || x == Double.NEGATIVE_INFINITY )
             throw new CustomException(); 
@@ -38,6 +60,14 @@ public class TrigLib {
         return sum;
     }
     
+    /**
+     * Returns the trigonometric cosine of an angle. Special cases:
+     * If the argument is negative or positive infinity, then it
+     * will throw a custom exception.
+     *
+     * @param   x   an angle, in radians.
+     * @return  the cosine of the argument.
+     */
     public static double cosine(double x) throws CustomException {
         if ( x == Double.POSITIVE_INFINITY || x == Double.NEGATIVE_INFINITY )
             throw new CustomException();
@@ -58,6 +88,16 @@ public class TrigLib {
         return sum;
     }
     
+    /**
+     * Returns the trigonometric tangent of an angle.  Special cases:
+     * If the argument is negative or positive infinity, then it
+     * will throw a custom exception.
+     * If the argument is zero, then the result is a zero with the
+     * same sign as the argument.
+     *
+     * @param   x   an angle, in radians.
+     * @return  the tangent of the argument.
+     */
     public static double tan(double x) throws CustomException {
         if ( x == Double.POSITIVE_INFINITY || x == Double.NEGATIVE_INFINITY )
             throw new CustomException();
@@ -66,11 +106,3 @@ public class TrigLib {
     }
     
 }
-//class CustomException extends Exception
-//{
-//  public CustomException()
-//  {
-//    System.out.println("Invalid input");
-//  }
-//}
-    
