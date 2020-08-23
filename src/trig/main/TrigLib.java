@@ -3,8 +3,9 @@ package trig.main;
 public class TrigLib {
     
     public static void main (String args[]) throws CustomException {
-        double in1 = 90;
-        System.out.println(toRadians(in1));
+        double in1 = 368;
+        System.out.println(cosine(toRadians(in1)));
+        System.out.println(Math.cos(Math.toRadians(in1)));
     }
     
     public static double toDegrees(double x) throws CustomException 
@@ -17,7 +18,7 @@ public class TrigLib {
     
     public static double toRadians(double x) throws CustomException 
     { 
-        if ( x == Double.POSITIVE_INFINITY || x == Double.NEGATIVE_INFINITY )
+        if ( x == Double.POSITIVE_INFINITY || x == Double.NEGATIVE_INFINITY || x==Double.NaN)
             throw new CustomException();
         double sum = x * Math.PI / 180;
         return sum; 
@@ -72,3 +73,4 @@ public class TrigLib {
 //    System.out.println("Invalid input");
 //  }
 //}
+    
